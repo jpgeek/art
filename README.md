@@ -1,0 +1,2 @@
+# art
+ActiveRecord Translated
