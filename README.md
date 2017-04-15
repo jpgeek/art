@@ -40,18 +40,18 @@ In the Essay model, you would specify:
 Art will set up a `has_many` relationship for the translation table and will delegate
     :title, :title=, :description, :description=
 to the translation table.  It also creates a scoped association called `translator`
-which references the translation table with `@current_locale` if set or I18n.locale.
+which scopes the translation table with locale: `@current_locale` if set or I18n.locale.
 
 To access translations:
 
     essay = Essay.first
-    I18n.locale = :ja
     essay.title
     # => 'My Dog' 
+    I18n.locale = :ja
     essay.title
     # => '私の犬' 
 
-You can also override this by specifying the instance variable `@current_locale`:
+You can override the locale by specifying the instance variable `@current_locale`:
     @current_locale = :fr
     essay.title
     # => 'Ma Chien' 
@@ -65,10 +65,10 @@ To add another locale, simply do:
     essay(title: 'タイトル', description: '内容')
     essay.save
 
-
 ## Installation
 Add this line to your application's Gemfile:
-gem 'art'
+gem 'art', :git => 'git://github.com/jpgeek/art.git'
+
 
 ```ruby
 gem 'art'
@@ -79,14 +79,17 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+Or clone it and install it yourself as:
 ```bash
-$ gem install art
+$ gem build art.gemspec
+$ gem install art.gem
 ```
 
 ## Contributing
-I am happy to include contributions with the following caveats.
-1. Code must be simple and difficult to break.
+Contributions are welcome with the following caveats.
+1. ART is meant to be fairly bare-bones, so great swaths of rambling
+   feature-rich code will probably be rejected.  Globalize does a great job
+   there.
 2. Nothing goes in without a test. 
 3. No modification of internals of dependencies (ActiveRecord, ActiveModel,
    I18n etc).  Only public API's.
@@ -95,4 +98,3 @@ If in doubt, post an issue about what you would like to include before writing i
 ## License
 The gem is available as open source under the terms of the [MIT
 License](http://opensource.org/licenses/MIT).
-
