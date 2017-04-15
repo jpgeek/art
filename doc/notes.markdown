@@ -1,8 +1,8 @@
 # TODO
 
+  Create git repo, push
 
-  Figure out how to translate:
-    translate uses :delegate with the translator_proxy.
+  Translate uses :delegate with the translator_proxy.
 
   fix tests: add :ja to valid locales
   test `current_locale` switch

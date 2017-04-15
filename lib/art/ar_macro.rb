@@ -24,7 +24,7 @@ module Art
       def setup_translator_relation!
         translated_class.send(:has_many, translator_relation_name.to_sym)
         translated_class.instance_eval{
-          name = translator_class_name
+          #name = translator_class_name
           has_one(
             :translator_proxy, 
             ->(translator_object) {where(locale: translator_object.current_locale)},
@@ -46,7 +46,7 @@ module Art
       def setup_current_locale!
         self.class_eval do
           def current_locale
-            @current_locale || I18n.locale
+            instance_variable_defined?(:@current_locale) ? @current_locale : I18n.locale
           end
         end
       end
@@ -65,7 +65,7 @@ module Art
 
 
       def translator_class_name
-        return self.name if self.name.match /Translation$/
+        return self.name if self.name.match(/Translation$/)
         "#{self.name}Translation"
       end
 

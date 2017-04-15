@@ -2096,3 +2096,754 @@ Art::Test: test_translated_relation_name
 Art::Test: test_macros_included
 -------------------------------
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.9ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:27:07.926578', '2017-04-15 05:27:07.926578', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:27:07.926578', '2017-04-15 05:27:07.926578', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:27:07.929870', '2017-04-15 05:27:07.929870', 980190962)[0m
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:27:50.260595', '2017-04-15 05:27:50.260595', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:27:50.260595', '2017-04-15 05:27:50.260595', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:27:50.262581', '2017-04-15 05:27:50.262581', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:28:13.789036', '2017-04-15 05:28:13.789036', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:28:13.789036', '2017-04-15 05:28:13.789036', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:28:13.791245', '2017-04-15 05:28:13.791245', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:28:20.179389', '2017-04-15 05:28:20.179389', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:28:20.179389', '2017-04-15 05:28:20.179389', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:28:20.181560', '2017-04-15 05:28:20.181560', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:28:37.876234', '2017-04-15 05:28:37.876234', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:28:37.876234', '2017-04-15 05:28:37.876234', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:28:37.878569', '2017-04-15 05:28:37.878569', 980190962)[0m
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:28:45.291582', '2017-04-15 05:28:45.291582', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:28:45.291582', '2017-04-15 05:28:45.291582', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:28:45.293556', '2017-04-15 05:28:45.293556', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:29:42.407594', '2017-04-15 05:29:42.407594', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:29:42.407594', '2017-04-15 05:29:42.407594', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:29:42.409624', '2017-04-15 05:29:42.409624', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:30:58.779306', '2017-04-15 05:30:58.779306', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:30:58.779306', '2017-04-15 05:30:58.779306', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:30:58.781238', '2017-04-15 05:30:58.781238', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:31:53.540495', '2017-04-15 05:31:53.540495', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:31:53.540495', '2017-04-15 05:31:53.540495', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:31:53.542674', '2017-04-15 05:31:53.542674', 980190962)[0m
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:32:39.417139', '2017-04-15 05:32:39.417139', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:32:39.417139', '2017-04-15 05:32:39.417139', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:32:39.419119', '2017-04-15 05:32:39.419119', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "post_translations"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('en', 'post title', '2017-04-15 05:32:54.882743', '2017-04-15 05:32:54.882743', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "post_translations" ("locale", "title", "created_at", "updated_at", "id", "post_id") VALUES ('ja', 'ポストタイトル', '2017-04-15 05:32:54.882743', '2017-04-15 05:32:54.882743', 298486374, 980190962)[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "posts"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "id") VALUES ('2017-04-15 05:32:54.886333', '2017-04-15 05:32:54.886333', 980190962)[0m
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+Art::Test: test_macros_included
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------
+Art::Test: test_translate
+-------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.2ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :en], ["LIMIT", 1]]
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.0ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+Art::Test: test_translated_has_one_translator_proxy
+---------------------------------------------------
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPostTranslation Load (0.1ms)[0m  [1m[34mSELECT  "post_translations".* FROM "post_translations" WHERE "post_translations"."post_id" = ? AND "post_translations"."locale" = ? LIMIT ?[0m  [["post_id", 980190962], ["locale", :ja], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translated_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translated_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translator_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+Art::Test: test_translated_has_many_translator
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+Art::Test: test_translated_class_name
+-------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------
+Art::Test: test_translator_class
+--------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+Art::Test: test_translator_belongs_to_translated
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+Art::Test: test_translator_relation_name
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m

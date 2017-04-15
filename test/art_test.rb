@@ -2,6 +2,10 @@ require 'test_helper'
 
 class Art::Test < ActiveSupport::TestCase
 
+  def setup
+    I18n.available_locales = [:en, :ja]
+  end
+
   test 'macros included' do
     assert Post.respond_to? :translated
     assert Post.respond_to? :translator
@@ -20,7 +24,7 @@ class Art::Test < ActiveSupport::TestCase
 
   test 'translated class name' do
     [Post, PostTranslation].each do |klass|
-      assert_equal 'Post', klass.send(:translated_class_name)
+      assert_equal('Post', klass.send(:translated_class_name))
     end
   end
 
@@ -64,6 +68,14 @@ class Art::Test < ActiveSupport::TestCase
     assert_equal 'post title', Post.first.title
     I18n.locale = :ja
     assert_equal 'ポストタイトル', Post.first.title
+  end
+
+  test 'update' do
+    fail 'test me'
+  end
+
+  test 'create' do
+    fail 'test me'
   end
 
 
