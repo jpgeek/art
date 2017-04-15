@@ -75,8 +75,9 @@ class Art::Test < ActiveSupport::TestCase
   end
 
   test 'create' do
+    # test creates new translation record for new parent record
+    # test creates new translation record for existing parent record
     fail 'test me'
   end
-
 
 end
